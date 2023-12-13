@@ -87,6 +87,99 @@ SELECT * FROM DEMO.HCM.EMPLOYEES;
 
 <img width="959" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/70747f15-42b6-4da6-8add-70b32d128217">
 
+**The New Pipeline window will appear, so enter a pipeline name and if desired, a description, and make sure that the Engine Type selected is Transformer for Snowflake.**
+
+<img width="959" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/a3f7cb0c-ebf7-47ac-b20c-6b9904b9e3f7">
+
+<img width="959" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/75817a84-d1a0-46c8-b671-f6a5dd39a54c">
+
+**Add any users or groups for shared access to the pipeline, choose Save & Next, and then Open in Canvas.**
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/ebbfccdc-0879-41e5-88aa-8eb017aa42a2">
+
+## 4. Code Snippets, Info Boxes, and Tables
+
+**Every Transformer for Snowflake pipeline must have an origin and a destination. For this pipeline, select the Snowflake Table Origin from either the drop down menu at the top of the canvas or from the full menu of processors on the right.**
+
+**Click on the Table origin, under the General tab, and name it ‘Employees', and on the Table tab, enter the table name EMPLOYEES. This will be the Dimension table that tracks the employee data.**
+
+**Add a second Snowflake Table origin to the canvas. This origin will be for a feed of updated Employee data. Under the General tab, name the origin ‘Updates' and on the Table tab, enter UPDATE_FEED.**
+
+**At this point, run the first section of SQL in the SQL Script file to create and populate the EMPLOYEES and UPDATE_FEED tables in a Snowflake Worksheet. You will need to substitute the names of your database and schema into the script if you already have your own that you want to use.**
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/b6cbe3ea-6b0d-4d04-a068-34518917f9dc">
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/a0e70d68-c76c-4f0c-a1a1-693598549ca5">
+
+**NEXT Select Snowflake Table**
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/d8fad5d1-643d-4feb-aeb3-27f88bacdb61">
+
+## 5. Add Slowly Changing Dimension
+**Now add the Slowly Changing Dimension processor from the top menu (which only appears when the origin is selected on the canvas) or from the right side menu of all Processors. Make sure the Employees Table Origin is connected to the Slowly Changing Dimensions.**
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/ebd31a52-dff7-4892-a470-ab5cffcd867d">
+
+**First, connect the Employees origin to the Slowly Changing Dimension processor. Next, connect the Updates origin to the Slowly Changing Dimension process. The line connecting from Employees to the SCD processor should have a 1 where it connects to the SCD, and the line connecting the Updates origin should have a 2**
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/88d09bb6-dcbd-49c0-bce2-386ea6398bd2">
+
+**In the settings for the Slowly Changing Dimension, add the following configurations:**
+
+:small_blue_diamond: SCD Type: Type 2
+
+:small_blue_diamond: Key Fields: ID
+
+:small_blue_diamond: Specify Version Field: Checked
+
+:small_blue_diamond: Version Field: VERSION
+
+:small_blue_diamond: Specify Active Flag: Checked
+
+:small_blue_diamond: Active Flag Field: ACTIVE_FLAG
+
+:small_blue_diamond: Active Field Type: True-False
+
+:small_blue_diamond: Specify Timestamp Fields: Checked
+
+:small_blue_diamond: Start Timestamp Field: START_TIMESTAMP
+
+:small_blue_diamond: End Timestamp Field: END_TIMESTAMP
+
+:small_blue_diamond: Timestamp Expression: CURRENT_TIMESTAMP (Default Value)
+
+:small_blue_diamond: Behavior for New Fields: Remove from Change Data
+
+
+<img width="959" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/c857439f-78c9-4550-bfc4-5fa7cac88d4d">
+
+## 6. Add Snowflake Table Destination
+**The final step to complete this pipeline is to add the Table Destination.**
+
+**Select Snowflake Table from the "Select New Destination to connect" menu at the top of the canvas or the menu on the right, just be sure to select the Snowflake Table Destination, indicated by the red "D".**
+
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/475c3032-890d-4963-a8e8-1e848b7d5b5d">
+
+<img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/541ff53c-0491-4799-87c3-c9b6cc2c4fa2">
+
+## 7. Preview Results
+**Now that the pipeline has sources and a target, there should be no validation warnings showing, and the pipeline can be previewed.**
+
+**Activate the preview by selecting the eye icon in the top right of the canvas.**
+
+<img width="959" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/c40044fc-52bc-4e80-98b7-34b4a807d05f">
+
+<img width="959" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/2c56bca9-4d0b-4edf-b0f7-f86c11445d66">
+
+
+
+
+
+
+
+
+
 
 
 
