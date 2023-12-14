@@ -1,4 +1,4 @@
-# A Dive Into Slowly Changing Dimensions with Snowpark and StreamSets
+# :gem: A Dive Into Slowly Changing Dimensions with Snowpark and StreamSets
 
 ## 1. Overview
 **StreamSets Transformer for Snowflake is a hosted service embedded within the StreamSets DataOps Platform that uses the Snowpark Client Libraries to generate SnowSQL queries that are executed in Snowflake. Build your pipelines in the StreamSets canvas and when you execute that pipeline, StreamSets generates a DAG. StreamSets then uses the DAG and the Snowpark Client Libraries to generate SnowSQL. That SnowSQL is sent over to Snowflake to be executed in the Warehouse of your choice.**
