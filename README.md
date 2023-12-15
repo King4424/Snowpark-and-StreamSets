@@ -163,6 +163,9 @@ SELECT * FROM DEMO.HCM.EMPLOYEES;
 
 <img width="960" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/541ff53c-0491-4799-87c3-c9b6cc2c4fa2">
 
+<img width="959" alt="image" src="https://github.com/King4424/Snowpark-and-StreamSets/assets/121480992/66552836-6e05-4659-86dd-ce732e2804f7">
+
+
 ## 7. Preview Results
 **Now that the pipeline has sources and a target, there should be no validation warnings showing, and the pipeline can be previewed.**
 
